@@ -11,6 +11,8 @@
             Console.WriteLine(CasaDelLibro.NumLibros());
 
             CasaDelLibro.BusquedaTituloLibro("TITULO");
+
+            CasaDelLibro.ExportaLibroFichero();
         }
     }
 }

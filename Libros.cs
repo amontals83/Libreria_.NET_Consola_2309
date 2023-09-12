@@ -8,7 +8,6 @@ namespace Libreria
 {
     public class Libros
     {
-        public int id = 0;
         public String Nombre { get; set; }
         public String Titulo { get; set; }
         public String Autor { get; set; }

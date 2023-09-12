@@ -8,13 +8,19 @@ namespace Libreria
 {
     public class Libreria
     {
-        List<Libros> Libros = new List<Libros>();
+        public List<Libros> Libros;
 
-        public void AltaLibro( String nombre, String titulo, String autores, String editorial, String fechaCreacion, String formato, String osmr, String capitulos, String tipo, String categoria, int stock)
+        public Libreria()
         {
-            Libros libro1 = new Libros(nombre, titulo, autores, editorial, fechaCreacion, formato, osmr, capitulos, tipo, categoria, stock);
+            Libros = new List<Libros>();
+            Console.WriteLine("Alta de la Libreria");
+        }
 
-            this.libros.Add(libro1);
+        public void AltaLibro( String nombre, String titulo, String autor, String editorial, String fechaEdicion, String formato, String isbn, String capitulos, String tipo, String categoria, int stock)
+        {
+            Libros libro = new Libros(nombre, titulo, autor, editorial, fechaEdicion, formato, isbn, capitulos, tipo, categoria, stock);
+
+            Libros.Add(libro);
         }
 
         public int NumLibros()
@@ -31,33 +37,52 @@ namespace Libreria
                 if (libro.Titulo.Equals(titulo))
                 {
                     check = true;
+                    Console.WriteLine("El libro existe");
                     return libro;
                     break;
                 }
             }                      
-            if (check)
+            if (!check)
             {
-                Console.WriteLine("El libro existe");                
+                Console.WriteLine("El libro no existe");                
             }
             return null;
+        }
 
-            /*Otro bucle que no funcionaria si alguien durante el proceso añade o vende un libro en el List
-            Libros libroDevuelto = null;
-            for (int i = 0; i < Libros.Count; i++)
+        public void VentaLibro(String titulo)
+        {
+            foreach (var libro in Libros)
             {
-                if (Libros.ElementAt(i).Titulo == titulo)
+                if (libro.Titulo.Equals(titulo))
                 {
-                    Console.WriteLine("El libro existe");
-                    libroDevuelto = Libros.ElementAt(i);
-                }
-                else
-                {
-                   Console.WriteLine("El libro NO existe");
+                    libro.Stock -= libro.Stock;
+                    break;
                 }
             }
-            return libroDevuelto;
-            */
         }
-        
+
+        public void ListaLibros()
+        {
+            Console.WriteLine("------------------------");
+            foreach (var libro in Libros)
+            {
+                Console.WriteLine("TITULO: " + libro.Titulo);
+                Console.WriteLine("AUTORES: " + libro.Autor);
+                Console.WriteLine("------------------------");
+            }            
+        }
+
+        public void ExportaLibroFichero()
+        {
+            String path = "c:\\log\\fichero.txt";//Es necesario poner el archivo dentro de una carpeta
+            File.WriteAllText(path, "------------------------" + "\n\r");
+
+            foreach (var libro in Libros)
+            {
+                File.AppendAllText(path, "TITULO: ;" + libro.Titulo + ";" + libro.Autor + ";" + libro.Editorial + "\n\r");//Con ';' hacemos que al hacer un archivo .csv lo haga en celdas cada dato
+                File.AppendAllText(path, "AUTORES: " + libro.Autor + "\n\r");
+                File.AppendAllText(path, "------------------------" + "\n\r");
+            }
+        }
     }
 }
