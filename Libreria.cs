@@ -15,6 +15,15 @@ namespace Libreria
             Libros libro1 = new Libros(nombre, titulo, autores, editorial, fechaCreacion, formato, osmr, capitulos, tipo, categoria, stock);
 
             this.libros.Add(libro1);
-        }        
+        }
+
+        public int NumLibros()
+        {
+            return this.libros.Count();
+        }
+
+        
+
+        
     }
 }
