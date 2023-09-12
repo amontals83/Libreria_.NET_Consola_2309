@@ -8,45 +8,13 @@ namespace Libreria
 {
     public class Libreria
     {
-        List<Libros> libros;
+        List<Libros> libros = new List<Libros>();
 
-        public void AltaLibro()
+        public void AltaLibro( String nombre, String titulo, String autores, String editorial, String fechaCreacion, String formato, String osmr, String capitulos, String tipo, String categoria, int stock)
         {
-            Libros l1 = new Libros("NOMBRE", "TITULO", "AUTOR1, AUTOR2", "EDITORIAL", "2023", "DURA", "123456", "42", "NOVELA", "JUVENIL", 10);
+            Libros libro1 = new Libros(nombre, titulo, autores, editorial, fechaCreacion, formato, osmr, capitulos, tipo, categoria, stock);
 
-            this.libros.Add(l1);
-        }
-
-        public void VentaLibro( int id , int numLibros )
-        {
-            if (this.libros.ElementAt(id - 1).stock >= numLibros)
-            {
-                this.libros.ElementAt(id - 1).stock = this.libros.ElementAt(id - 1).stock - numLibros;
-            }
-            else
-            {
-                Console.WriteLine("No hay libros suficientes");
-            }            
-        }
-
-        public Libros BusquedaLibro( String nom )
-        {
-            String busqueda = "";
-            Libros libroDevuelto = null;
-            for (int i = 0; i < libros.Count; i++)
-            {
-                if (this.libros.ElementAt(i).titulo == nom)
-                {
-                    busqueda = "El libro existe";
-                    libroDevuelto = this.libros.ElementAt(i);
-                }
-                else
-                {
-                    busqueda = "El libro NO existe";
-                }
-            }          
-
-            return libroDevuelto;
-        }
+            this.libros.Add(libro1);
+        }        
     }
 }

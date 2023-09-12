@@ -23,16 +23,16 @@ namespace Libreria
         public int stock { get; set; }
 
         public Libros(  String nom,
-                                String tit,
-                                String aut,
-                                String edi,
-                                String fech,
-                                String form,
-                                String osbn,
-                                String cap,
-                                String tip,
-                                String cat,
-                                int stock)
+                        String tit,
+                        String aut,
+                        String edi,
+                        String fech,
+                        String form,
+                        String osbn,
+                        String cap,
+                        String tip,
+                        String cat,
+                        int stock)
         {
             this.id = id++;
             this.nombre = nom;
