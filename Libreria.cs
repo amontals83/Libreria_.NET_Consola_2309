@@ -22,8 +22,43 @@ namespace Libreria
             return this.libros.Count();
         }
 
-        
+        public Libros BusquedaTituloLibro(String tit)
+        {                        
+            bool check = false;
 
-        
+            foreach (var libro in this.libros) 
+            {
+                if (libro.titulo.Equals(tit))
+                {
+                    check = true;
+                    return libro;
+                    break;
+                }
+            }                      
+            if (check)
+            {
+                Console.WriteLine("El libro existe");                
+            }
+            return null;
+
+            /*Otro bucle que no funcionaria si alguien durante el proceso añade o vende un libro en el List
+            Libros libroDevuelto = null;
+            for (int i = 0; i < libros.Count; i++)
+            {
+                if (this.libros.ElementAt(i).titulo == tit)
+                {
+                    Console.WriteLine("El libro existe");
+                    libroDevuelto = this.libros.ElementAt(i);
+                }
+                else
+                {
+                   Console.WriteLine("El libro NO existe");
+                }
+            }
+            return libroDevuelto;
+            */
+        }       
+
+
     }
 }
