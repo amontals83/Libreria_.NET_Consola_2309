@@ -9,50 +9,49 @@ namespace Libreria
     public class Libros
     {
         public int id = 0;
-        public String nombre { get; set; }
-        public String titulo { get; set; }
-        public String autores { get; set; }
-        public String editorial { get; set; }
-        public String fechaEdicion { get; set; }
-        public String formato { get; set; }
-        public String osbn { get; set; }
-        public String capitulos { get; set; }
-        public String tipo { get; set; }
-        public String categoria { get; set; }
-        public bool estado { get; set; }
-        public int stock { get; set; }
+        public String Nombre { get; set; }
+        public String Titulo { get; set; }
+        public String Autor { get; set; }
+        public String Editorial { get; set; }
+        public String FechaEdicion { get; set; }
+        public String Formato { get; set; }
+        public String ISBN { get; set; }
+        public String Capitulos { get; set; }
+        public String Tipo { get; set; }
+        public String Categoria { get; set; }
+        public bool Estado { get; set; }
+        public int Stock { get; set; }
 
-        public Libros(  String nom,
-                        String tit,
-                        String aut,
-                        String edi,
-                        String fech,
-                        String form,
-                        String osbn,
-                        String cap,
-                        String tip,
-                        String cat,
+        public Libros(  String nombre,
+                        String titulo,
+                        String autor,
+                        String edicion,
+                        String fechaEdicion,
+                        String formato,
+                        String isbn,
+                        String capitulos,
+                        String tipo,
+                        String categoria,
                         int stock)
-        {
-            this.id = id++;
-            this.nombre = nom;
-            this.titulo = tit;
-            this.autores = aut;
-            this.editorial = edi;
-            this.fechaEdicion = fech;
-            this.formato = form;
-            this.osbn = osbn;
-            this.capitulos = cap;
-            this.tipo = tip;
-            this.categoria = cat;
-            this.estado = true;
-            this.stock = stock;
+        {            
+            this.Nombre = nombre;
+            this.Titulo = titulo;
+            this.Autor = autor;
+            this.Editorial = edicion;
+            this.FechaEdicion = fechaEdicion;
+            this.Formato = formato;
+            this.ISBN = isbn;
+            this.Capitulos = capitulos;
+            this.Tipo = tipo;
+            this.Categoria = categoria;
+            this.Estado = true;
+            this.Stock = stock;
         }
 
         public int SetStock( int stock)
         {
-            this.stock = stock;
-            return this.stock;
+            Stock = stock;
+            return Stock;
         }
 
     }    

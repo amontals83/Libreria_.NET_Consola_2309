@@ -8,7 +8,7 @@ namespace Libreria
 {
     public class Libreria
     {
-        List<Libros> libros = new List<Libros>();
+        List<Libros> Libros = new List<Libros>();
 
         public void AltaLibro( String nombre, String titulo, String autores, String editorial, String fechaCreacion, String formato, String osmr, String capitulos, String tipo, String categoria, int stock)
         {
@@ -19,16 +19,16 @@ namespace Libreria
 
         public int NumLibros()
         {
-            return this.libros.Count();
+            return Libros.Count();
         }
 
-        public Libros BusquedaTituloLibro(String tit)
+        public Libros BusquedaTituloLibro(String titulo)
         {                        
             bool check = false;
 
-            foreach (var libro in this.libros) 
+            foreach (var libro in Libros) 
             {
-                if (libro.titulo.Equals(tit))
+                if (libro.Titulo.Equals(titulo))
                 {
                     check = true;
                     return libro;
@@ -43,12 +43,12 @@ namespace Libreria
 
             /*Otro bucle que no funcionaria si alguien durante el proceso añade o vende un libro en el List
             Libros libroDevuelto = null;
-            for (int i = 0; i < libros.Count; i++)
+            for (int i = 0; i < Libros.Count; i++)
             {
-                if (this.libros.ElementAt(i).titulo == tit)
+                if (Libros.ElementAt(i).Titulo == titulo)
                 {
                     Console.WriteLine("El libro existe");
-                    libroDevuelto = this.libros.ElementAt(i);
+                    libroDevuelto = Libros.ElementAt(i);
                 }
                 else
                 {
@@ -57,8 +57,7 @@ namespace Libreria
             }
             return libroDevuelto;
             */
-        }       
-
-
+        }
+        
     }
 }
