@@ -17,10 +17,18 @@ namespace Libreria
         }
 
         public void AltaLibro( String nombre, String titulo, String autor, String editorial, String fechaEdicion, String formato, String isbn, String capitulos, String tipo, String categoria, int stock)
-        {
-            Libros libro = new Libros(nombre, titulo, autor, editorial, fechaEdicion, formato, isbn, capitulos, tipo, categoria, stock);
+        {            
+            int posicion = BusquedaTituloLibro(titulo);
 
-            Libros.Add(libro);
+            if (posicion == -1)
+            {                
+                Libros libro = new Libros(nombre, titulo, autor, editorial, fechaEdicion, formato, isbn, capitulos, tipo, categoria, stock);
+                Libros.Add(libro); ;
+            }
+            else
+            {               
+                Libros.ElementAt(posicion).SetStock(stock);
+            }
         }
 
         public int NumLibros()
@@ -28,17 +36,17 @@ namespace Libreria
             return Libros.Count();
         }
 
-        public Libros BusquedaTituloLibro(String titulo)
+        public int BusquedaTituloLibro(String titulo)
         {                        
             bool check = false;
-
+            int posicion = -1;
             foreach (var libro in Libros) 
             {
+                posicion++;
                 if (libro.Titulo.Equals(titulo))
                 {
                     check = true;
-                    Console.WriteLine("El libro existe");
-                    return libro;
+                    Console.WriteLine("El libro existe");                    
                     break;
                 }
             }                      
@@ -46,7 +54,13 @@ namespace Libreria
             {
                 Console.WriteLine("El libro no existe");                
             }
-            return null;
+            return posicion;
+        }
+
+        public void AddStock(String titulo, int stock)
+        {
+            int posicion = BusquedaTituloLibro(titulo);
+            Libros.ElementAt(posicion).SetStock(stock);
         }
 
         public void VentaLibro(String titulo)

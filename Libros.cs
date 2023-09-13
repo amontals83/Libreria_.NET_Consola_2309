@@ -44,13 +44,12 @@ namespace Libreria
             this.Tipo = tipo;
             this.Categoria = categoria;
             this.Estado = true;
-            this.Stock = stock;
+            this.Stock = 0;
         }
 
-        public int SetStock( int stock)
+        public void SetStock(int stock)
         {
-            Stock = stock;
-            return Stock;
+            Stock += stock;            
         }
 
     }    
